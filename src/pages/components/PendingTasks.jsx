@@ -5,14 +5,41 @@ import {
   TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdDelete, MdEdit } from "react-icons/md";
+import useLocalStorage from "../custom-hooks/useLocalStorage";
 
 const PendingTasks = ({ taskList, handleOnOpenEdit }) => {
+  const { deleteTask } = useLocalStorage();
+  const [isEmpty, setIsEmpty] = useState(true);
+
+  useEffect(() => {
+    taskList.map((task) => {
+      if (task.status === "Pending") {
+        setIsEmpty(false);
+      }
+    });
+  }, [taskList]);
+
+  if (isEmpty) {
+    return (
+      <Box
+        height={"70px"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        className="task-list-container"
+      >
+        <Text>No Pending Tasks</Text>
+      </Box>
+    );
+  }
+
   return (
     <Box className="task-list-container">
       <TableContainer>

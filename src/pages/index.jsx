@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { IoAddCircle } from "react-icons/io5";
 import CreateTask from "./components/CreateTask";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useLocalStorage from "./custom-hooks/useLocalStorage";
 import { MdDelete, MdEdit } from "react-icons/md";
 import UpdateTask from "./components/UpdateTask";
@@ -30,9 +30,16 @@ export default function Home() {
     onOpen: onOpenEdit,
     onClose: onCloseEdit,
   } = useDisclosure();
-  const { tasks, deleteTask } = useLocalStorage();
+  const { tasks } = useLocalStorage();
   const [taskList, setTaskList] = useState([]);
   const [filterTask, setFilterTask] = useState("All");
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const [pendingTasks, setPendingTasks] = useState([]);
+
+  const filterTasks = useCallback(() => {
+    setPendingTasks(tasks.filter((task) => task.status === "Pending"));
+    setCompletedTasks(tasks.filter((task) => task.status === "Completed"));
+  }, [taskList]);
 
   useEffect(() => {
     setTaskList(tasks);
@@ -59,7 +66,7 @@ export default function Home() {
         )}
         <Box>
           <Select
-            className="custom-button"
+            className="custom-button blue-button"
             value={filterTask}
             onChange={(e) => setFilterTask(e.target.value)}
           >

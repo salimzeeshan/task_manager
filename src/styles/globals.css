@@ -86,6 +86,7 @@ body {
   justify-content: center !important;
   cursor: pointer;
   min-width: 125px !important;
+  font-weight: 600 !important;
 }
 
 .task-list-container {
@@ -97,9 +98,12 @@ body {
 
 .green-button {
   background-color: #48cc48 !important;
-  color: white;
-  border-radius: 20px;
-  font-weight: 600;
+  color: white !important;
+}
+
+.blue-button {
+  background-color: #4c6fe2 !important;
+  color: white !important;
 }
 
 .modal-body,

@@ -36,6 +36,8 @@ const UpdateTask = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const currentEdit = JSON.parse(localStorage.getItem("currentEdit"));
+    if (!currentEdit) return;
+
     setCurrentIndex(currentEdit.index);
     setStatus(currentEdit.status);
     setDueDate(currentEdit.dueDate);
