@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --padding-inline: 20px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+#light {
+  --background-color: #EEEEEE;
+  --foreground-color: #ffffff;
+  --primary-color: #F5F5F5;
+  --text-color: black;
+}
+
+#dark {
+  --background-color: #161618;
+  --foreground-color: #393E46;
+  --primary-color: #F5F5F5;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+.table-header th {
+  color: var(--text-color) !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: var(--padding-inline);
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--foreground-color);
+}
+
+.main-wrapper {
+  padding-top: 80px;
+  padding-inline: var(--padding-inline);
+}
+
+.navbar div {
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.header>div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  text-wrap: nowrap;
+}
+
+.custom-button {
+  padding: 10px 15px !important;
+  height: 40px !important;
+  display: flex !important;
+  gap: 5px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  min-width: 125px !important;
+}
+
+.task-list-container {
+  background-color: var(--foreground-color);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.green-button {
+  background-color: #48cc48 !important;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.modal-body,
+.modal-footer,
+.modal-header,
+.modal-content {
+  background-color: var(--foreground-color) !important;
+}
